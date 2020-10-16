@@ -3,9 +3,10 @@
  * @Version: 2.0
  * @Autor: yaomingfei
  * @Date: 2020-01-09 15:34:17
- * @LastEditors: chrisworkalx
- * @LastEditTime: 2020-05-15 11:07:51
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-10-16 16:32:47
  */
+console.log(11111);
 class Compile {
     /**
      * 
