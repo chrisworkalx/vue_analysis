@@ -3,8 +3,8 @@
  * @Version: 2.0
  * @Autor: yaomingfei
  * @Date: 2020-01-09 16:15:21
- * @LastEditors  : yaomingfei
- * @LastEditTime : 2020-01-09 16:50:28
+ * @LastEditors: chrisworkalx
+ * @LastEditTime: 2020-05-15 10:53:26
  */
 
 
@@ -12,7 +12,7 @@
 class Dep {
     constructor() {
         // 存数所有的依赖 
-        this.deps = [] 
+        this.deps = []
     }
     // 在deps中添加一个监听器对象 
     addDep(dep) {
@@ -32,6 +32,16 @@ class Dep {
 
 
 // 监听器 
+
+// new Watcher(vm, exp, function (value) {
+//     updaterFn && updaterFn(node, value)
+// })
+/**
+     * 
+     * @param {*} vm vue实例
+     * @param {*} key  //data: {key:value} 对应的key
+     * @param {*} cb  //回调函数
+     */
 class Watcher {
     constructor(vm, key, cb) {
         // 在new一个监听器对象时将该对象赋值给Dep.target，在get中会用到
@@ -73,7 +83,7 @@ class KVue {
     observer(value) {
         if (!value || (typeof value !== 'object')) {
             return
-        } 
+        }
         Object.keys(value).forEach((key) => {
             this.proxyData(key)
             this.defineReactive(value, key, value[key])

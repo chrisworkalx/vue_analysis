@@ -3,8 +3,8 @@
  * @Version: 2.0
  * @Autor: yaomingfei
  * @Date: 2020-01-09 15:34:17
- * @LastEditors  : yaomingfei
- * @LastEditTime : 2020-01-09 16:45:26
+ * @LastEditors: chrisworkalx
+ * @LastEditTime: 2020-05-15 11:07:51
  */
 class Compile {
     /**
@@ -65,11 +65,18 @@ class Compile {
                 this[dir] && this[dir](node, this.$vm, exp)
             }
             if (this.isEventDirective(attrName)) {
-                let dir = attrName.substring(1) // text 
-                this.eventHandler(node, this.$vm, exp, dir)
+                let dir = attrName.substring(1) // 类似@click 这种 dir=“click”
+                this.eventHandler(node, this.$vm, exp, dir) //exp值得是@click="eventHandle"中eventHandle这个函数
             }
         })
     }
+    /**
+     * @description: 
+     * @param {node} //dom节点
+     * @param {exp} /正则表达式匹配的字段内容
+     * @return: 
+     * @author: chrisworkalx
+     */
     compileText(node, exp) {
         this.text(node, this.$vm, exp);
     }
@@ -102,6 +109,14 @@ class Compile {
         this.update(node, vm, exp, 'html');
     }
 
+    /**
+     * @description: 
+     * @param {node}  // dom函数
+     * @param {vm}  // vue实例
+     * @param {exp}  // v-model=“aa” data中绑定的aa
+     * @return: 
+     * @author: chrisworkalx
+     */
     model(node, vm, exp) {
         this.update(node, vm, exp, 'model')
         let val = vm.exp
@@ -129,6 +144,15 @@ class Compile {
 
 
     // 事件处理 
+    /**
+     * @description: 
+     * @param {node} //dom节点
+     * @param {vm}  //vm   vue this实例
+     * @param {exp} // exp 指的是methods方法中的函数key值
+     * @param {dir} // dir指的是@click中的‘click’
+     * @return: 
+     * @author: chrisworkalx
+     */
     eventHandler(node, vm, exp, dir) {
         let fn = vm.$options.methods && vm.$options.methods[exp]
         if (dir && fn) {
