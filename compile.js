@@ -4,9 +4,10 @@
  * @Autor: yaomingfei
  * @Date: 2020-01-09 15:34:17
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-10-16 16:32:47
+ * @LastEditTime: 2020-11-01 11:01:01
  */
 console.log(11111);
+console.log(22222);
 class Compile {
     /**
      * 
