@@ -4,15 +4,16 @@
  * @Autor: yaomingfei
  * @Date: 2020-01-09 15:34:17
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-11-01 11:16:05
+ * @LastEditTime: 2020-11-01 11:24:51
  */
-console.log(11111);
 console.log(22222);
 var a = 10;
 function sum() {
     return Array.from(arguments).reduce((pre,now) => pre + now);
 }
-sum(1,2,3,a);
+var sum1 = sum(1,2,3,a);
+var total = sum(sum1, 20);
+console.log(total, '====total');
 class Compile {
     /**
      * 
