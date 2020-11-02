@@ -4,9 +4,10 @@
  * @Autor: yaomingfei
  * @Date: 2020-01-09 15:34:17
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-11-01 11:30:47
+ * @LastEditTime: 2020-11-02 10:24:45
  */
 var a = 10;
+
 function sum() {
     return Array.from(arguments).reduce((pre,now) => pre + now);
 }
